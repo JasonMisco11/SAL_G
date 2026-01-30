@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import { siteConfig } from "@/config/site"; // Ensure this import path is correct
+import { siteConfig } from "@/config/site"; 
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -11,7 +11,6 @@ const Navbar = () => {
     <nav className="fixed top-0 left-0 w-full z-50 bg-white border-b border-gray-100">
       <div className="max-w-[1440px] mx-auto px-6 h-20 flex items-center justify-between">
         
-        {/* Logo Section */}
         <Link href="/" className="flex items-center gap-2">
           <div className="border-2 border-black px-2 py-1">
             <span className="font-bold text-xl tracking-tighter text-black uppercase">
@@ -20,9 +19,7 @@ const Navbar = () => {
           </div>
         </Link>
 
-        {/* Desktop Navigation */}
         <div className="hidden md:flex items-center gap-8">
-          {/* FIX 1: Changed NAV_LINKS to siteConfig.navLinks */}
           {siteConfig.nav_Links.map((link) => (
             <Link 
               key={link.label} 
@@ -34,14 +31,15 @@ const Navbar = () => {
           ))}
         </div>
 
-        {/* CTA Button */}
         <div className="hidden md:block">
-          <button className="bg-[#1a1a1a] text-white px-6 py-2.5 text-sm font-semibold rounded-sm cursor-pointer hover:bg-black/90 transition-all">
+          <Link 
+            href="#contact"
+            className="bg-[#1a1a1a] text-white px-6 py-2.5 text-sm font-semibold rounded-sm hover:bg-black/90 transition-all inline-block"
+          >
             Book
-          </button>
+          </Link>
         </div>
 
-        {/* Mobile Toggle Button */}
         <button 
           className="md:hidden p-2 text-black"
           onClick={() => setIsOpen(!isOpen)}
@@ -59,10 +57,8 @@ const Navbar = () => {
         </button>
       </div> 
 
-      {/* Mobile Menu Overlay */}
       {isOpen && (
         <div className="md:hidden absolute top-20 left-0 w-full bg-white border-b border-gray-100 shadow-lg p-6 flex flex-col gap-4 animate-in slide-in-from-top-2">
-          {/* FIX 2: Changed NAV_LINKS to siteConfig.navLinks */}
           {siteConfig.nav_Links.map((link) => (
             <Link 
               key={link.label} 

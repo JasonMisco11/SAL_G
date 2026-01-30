@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { siteConfig } from "@/config/site";
-import { Mail, Phone, MapPin, Send, Loader2 } from "lucide-react"; // Icons
+import { Mail, Phone, MapPin, Send, Loader2 } from "lucide-react"; 
 
 export default function Contact() {
   const [loading, setLoading] = useState(false);
@@ -17,7 +17,6 @@ export default function Contact() {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  // --- OPTION 1: Send via Nodemailer ---
   const handleEmailSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setLoading(true);
@@ -42,7 +41,6 @@ export default function Contact() {
     }
   };
 
-  // --- OPTION 2: Send via WhatsApp ---
   const handleWhatsApp = () => {
     const { name, service, message } = formData;
     if (!name || !message) {
@@ -50,11 +48,10 @@ export default function Contact() {
       return;
     }
 
-    // Format the message for WhatsApp
     const text = `Hello Vevadecor, my name is ${name}. I am interested in ${service}. Message: ${message}`;
     const encodedText = encodeURIComponent(text);
     
-    // Open WhatsApp Web/App
+    // Open WhatsApp
     window.open(`https://wa.me/${siteConfig.contact.phone.replace('+', '')}?text=${encodedText}`, '_blank');
   };
 
@@ -62,7 +59,6 @@ export default function Contact() {
     <section id="contact" className="py-24 px-6 bg-[#1a1a1a] text-white">
       <div className="max-w-[1440px] mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16">
         
-        {/* Left Column: Contact Info */}
         <div className="flex flex-col gap-8">
           <div>
             <h2 className="text-4xl font-bold tracking-tight mb-4">Start your project today</h2>
@@ -77,7 +73,6 @@ export default function Contact() {
                 <Mail size={24} />
               </div>
              <div>
-                {/* Fixed: Changed <p> to <a> */}
                 <a 
                   href={`mailto:${siteConfig.contact.email}`}
                   className="text-sm text-gray-400 font-medium hover:text-white transition-colors block"
@@ -98,7 +93,6 @@ export default function Contact() {
                 <Phone size={24} />
               </div>
               <div>
-                {/* Fixed: Changed <p> to <a> */}
                 <a
                   href={`tel:${siteConfig.contact.phone}`}
                   className="text-sm text-gray-400 font-medium hover:text-white transition-colors block"
@@ -126,7 +120,6 @@ export default function Contact() {
           </div>
         </div>
 
-        {/* Right Column: Booking Form */}
         <div className="bg-white text-black p-8 md:p-10 rounded-sm shadow-2xl">
           <h3 className="text-2xl font-bold mb-6">Book a Consultation</h3>
           

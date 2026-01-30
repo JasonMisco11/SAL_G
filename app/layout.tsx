@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
-import Navbar from "@/components/navbar"; // Import your component
+import Navbar from "@/components/navbar"; 
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -18,10 +18,10 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-        {/* Navbar sits at the top of the application */}
+        
         <Navbar /> 
         
-        {/* Main content flows underneath */}
+        
         <main>
           {children}
         </main>

@@ -4,7 +4,7 @@ import { useEffect, useRef, useState } from "react";
 
 interface ScrollRevealProps {
   children: React.ReactNode;
-  delay?: string; // Tailwind delay class (e.g., "delay-100")
+  delay?: string; 
 }
 
 export default function ScrollReveal({ children, delay = "delay-0" }: ScrollRevealProps) {

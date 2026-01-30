@@ -9,7 +9,6 @@ interface CounterProps {
 
 export default function Counter({ value, duration = 2000 }: CounterProps) {
   const [count, setCount] = useState(0);
-  // Ref remains the same
   const ref = useRef<HTMLSpanElement>(null);
   const isVisible = useIsVisible(ref);
 
@@ -43,9 +42,6 @@ export default function Counter({ value, duration = 2000 }: CounterProps) {
   );
 }
 
-// --- THE FIX IS HERE ---
-// We changed the type to 'React.RefObject<HTMLElement | null>'
-// This tells TypeScript: "It's okay if this ref is null initially, and it's okay if it's a specific element like a Span."
 function useIsVisible(ref: React.RefObject<HTMLElement | null>) {
   const [isIntersecting, setIntersecting] = useState(false);
 

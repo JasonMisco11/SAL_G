@@ -4,10 +4,9 @@ import { animate, motion, useMotionValue } from "framer-motion";
 import { useEffect, useState } from "react";
 import useMeasure from "react-use-measure";
 import Image from "next/image";
-import { siteConfig } from "@/config/site"; // Import config
+import { siteConfig } from "@/config/site"; 
 
 export default function InfiniteScroll() {
-  // Use images from config
   const images = siteConfig.galleryImages;
   
   const FAST_DURATION = 25;
@@ -53,7 +52,6 @@ export default function InfiniteScroll() {
              <h3 className="text-2xl text-black font-bold">Inspiration Gallery</h3>
         </div>
 
-        {/* Height container is required for absolute positioning children */}
         <div className="relative h-[300px] w-full">
             <motion.div
                 className="absolute left-0 flex gap-6"
@@ -68,7 +66,6 @@ export default function InfiniteScroll() {
                 setDuration(FAST_DURATION);
                 }}
             >
-                {/* We double the array to create the seamless loop effect */}
                 {[...images, ...images].map((item, idx) => (
                     <Card image={item} key={idx} />
                 ))}
