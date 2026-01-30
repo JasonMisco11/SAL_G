@@ -158,7 +158,7 @@ export default function Contact() {
                     className="p-3 border border-gray-200 rounded-sm focus:outline-none focus:border-black transition-colors bg-gray-50 h-full"
                 >
                     <option>Interior Design</option>
-                    <option>Architecture</option>
+                    <option>Architecture & Planning</option>
                     <option>Lighting Design</option>
                     <option>Consultation</option>
                 </select>
