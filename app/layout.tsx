@@ -6,8 +6,8 @@ import Navbar from "@/components/navbar"; // Import your component
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "VivaDecor | Modern Interior Design",
-  description: "Transform your living space with VivaDecor.",
+  title: "SAF Interior Limited | Modern Interior Design",
+  description: "Transform your living space with SAF Interior Limited.",
 };
 
 export default function RootLayout({
