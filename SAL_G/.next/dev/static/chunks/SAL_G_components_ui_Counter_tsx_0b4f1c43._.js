@@ -15,20 +15,19 @@ var _s = __turbopack_context__.k.signature(), _s1 = __turbopack_context__.k.sign
 function Counter({ value, duration = 2000 }) {
     _s();
     const [count, setCount] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$SAL_G$2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$1$2e$5_$40$babel$2b$core$40$7$2e$2_34156460ef1412b722433d7939c8c891$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])(0);
+    // Ref remains the same
     const ref = (0, __TURBOPACK__imported__module__$5b$project$5d2f$SAL_G$2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$1$2e$5_$40$babel$2b$core$40$7$2e$2_34156460ef1412b722433d7939c8c891$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useRef"])(null);
     const isVisible = useIsVisible(ref);
-    // Parse the number (400) and the suffix (+)
-    const numericValue = parseInt(value.replace(/\D/g, ""), 10); // Extracts 400
-    const suffix = value.replace(/[0-9]/g, ""); // Extracts "+"
+    const numericValue = parseInt(value.replace(/\D/g, ""), 10);
+    const suffix = value.replace(/[0-9]/g, "");
     (0, __TURBOPACK__imported__module__$5b$project$5d2f$SAL_G$2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$1$2e$5_$40$babel$2b$core$40$7$2e$2_34156460ef1412b722433d7939c8c891$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useEffect"])({
         "Counter.useEffect": ()=>{
-            if (!isVisible) return; // Only animate when seen
+            if (!isVisible) return;
             let startTime = null;
             const step = {
                 "Counter.useEffect.step": (timestamp)=>{
                     if (!startTime) startTime = timestamp;
                     const progress = Math.min((timestamp - startTime) / duration, 1);
-                    // Easing function (easeOutExpo) for smooth landing
                     const easeProgress = progress === 1 ? 1 : 1 - Math.pow(2, -10 * progress);
                     setCount(Math.floor(easeProgress * numericValue));
                     if (progress < 1) {
@@ -52,7 +51,7 @@ function Counter({ value, duration = 2000 }) {
         ]
     }, void 0, true, {
         fileName: "[project]/SAL_G/components/ui/Counter.tsx",
-        lineNumber: 41,
+        lineNumber: 40,
         columnNumber: 5
     }, this);
 }
@@ -62,7 +61,9 @@ _s(Counter, "5zrqlCCndTtTe/zdNtNWbBSRk4A=", false, function() {
     ];
 });
 _c = Counter;
-// Helper Hook for Visibility
+// --- THE FIX IS HERE ---
+// We changed the type to 'React.RefObject<HTMLElement | null>'
+// This tells TypeScript: "It's okay if this ref is null initially, and it's okay if it's a specific element like a Span."
 function useIsVisible(ref) {
     _s1();
     const [isIntersecting, setIntersecting] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$SAL_G$2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$1$2e$5_$40$babel$2b$core$40$7$2e$2_34156460ef1412b722433d7939c8c891$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])(false);
@@ -72,7 +73,7 @@ function useIsVisible(ref) {
                 "useIsVisible.useEffect": ([entry])=>{
                     if (entry.isIntersecting) {
                         setIntersecting(true);
-                        observer.disconnect(); // Run once
+                        observer.disconnect();
                     }
                 }
             }["useIsVisible.useEffect"]);

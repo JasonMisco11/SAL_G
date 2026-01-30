@@ -48,7 +48,7 @@ export default function InfiniteScroll() {
   }, [rerender, xTranslation, duration, width, mustFinish]); // Added mustFinish to deps
 
   return (
-    <section className="py-16 bg-white overflow-hidden">
+    <section id="projects" className="py-16 bg-white overflow-hidden">
         <div className="mb-8 px-6 max-w-[1440px] mx-auto">
              <h3 className="text-2xl text-black font-bold">Inspiration Gallery</h3>
         </div>

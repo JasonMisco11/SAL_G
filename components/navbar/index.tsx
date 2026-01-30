@@ -1,11 +1,10 @@
-"use client"; // 1. REQUIRED for useState and onClick
+"use client";
 
 import { useState } from "react";
 import Link from "next/link";
-import { NAV_LINKS } from "@/constants/navlinks"; 
+import { siteConfig } from "@/config/site"; // Ensure this import path is correct
 
 const Navbar = () => {
-  // 2. Define the state variable
   const [isOpen, setIsOpen] = useState(false);
 
   return (
@@ -23,7 +22,8 @@ const Navbar = () => {
 
         {/* Desktop Navigation */}
         <div className="hidden md:flex items-center gap-8">
-          {NAV_LINKS.map((link) => (
+          {/* FIX 1: Changed NAV_LINKS to siteConfig.navLinks */}
+          {siteConfig.nav_Links.map((link) => (
             <Link 
               key={link.label} 
               href={link.href}
@@ -42,31 +42,28 @@ const Navbar = () => {
         </div>
 
         {/* Mobile Toggle Button */}
-        {/* 3. Fixed the {{ typo here */}
         <button 
           className="md:hidden p-2 text-black"
           onClick={() => setIsOpen(!isOpen)}
           aria-label="Toggle Menu"
         >
           {isOpen ? (
-            /* Close Icon (X) */
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="w-8 h-8">
               <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
             </svg>
           ) : (
-            /* Hamburger Icon (Menu) */
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="w-8 h-8">
               <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
             </svg>
           )}
         </button>
       </div> 
-      {/* 4. Closed the main container div here */}
 
-      {/* 5. Added the Mobile Menu Overlay so the button works */}
+      {/* Mobile Menu Overlay */}
       {isOpen && (
         <div className="md:hidden absolute top-20 left-0 w-full bg-white border-b border-gray-100 shadow-lg p-6 flex flex-col gap-4 animate-in slide-in-from-top-2">
-          {NAV_LINKS.map((link) => (
+          {/* FIX 2: Changed NAV_LINKS to siteConfig.navLinks */}
+          {siteConfig.nav_Links.map((link) => (
             <Link 
               key={link.label} 
               href={link.href}

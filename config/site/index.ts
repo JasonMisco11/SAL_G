@@ -5,7 +5,7 @@ export const siteConfig = {
   description: "Modern Interior Design Platform",
   
   //  UPDATED LINKS: Using '#' to link to sections on the page
-  navLinks: [
+  nav_Links: [
     { label: "Home", href: "/" },
     { label: "Services", href: "#services" }, 
     { label: "Projects", href: "#projects" }, 
