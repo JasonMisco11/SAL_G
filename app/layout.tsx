@@ -1,13 +1,14 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
-import Navbar from "@/components/navbar"; 
+import Navbar from "@/components/navbar";
 
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "SAF Interior Limited | Modern Interior Design",
-  description: "Transform your living space with SAF Interior Limited.",
+  title: "SAF Interior Limited | Transforming Spaces, Inspiring Lifestyles",
+  description:
+    "Professional interior design and furnishing company in Accra, Ghana. Specializing in residential, commercial, and corporate interior solutions with quality craftsmanship.",
 };
 
 export default function RootLayout({
@@ -18,13 +19,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-        
-        <Navbar /> 
-        
-        
-        <main>
-          {children}
-        </main>
+        <Navbar />
+
+        <main>{children}</main>
       </body>
     </html>
   );
