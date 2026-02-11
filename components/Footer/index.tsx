@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { siteConfig } from "@/config/site";
 import { Mail, Phone, MapPin } from "lucide-react";
+import Image from "next/image";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -10,18 +11,12 @@ const Footer = () => {
       <div className="max-w-[1440px] mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
           {/* Brand */}
-          <div className="lg:col-span-1">
-            <Link href="/" className="inline-block mb-6">
-              <div className="border-2 border-white px-3 py-2">
-                <span className="font-bold text-xl tracking-tighter uppercase">
-                  SAF
-                </span>
-              </div>
-            </Link>
-            <p className="text-gray-400 leading-relaxed mb-4">
+          <div className="lg:col-span-1 flex flex-col items-center">
+            <Image src={siteConfig.logo} alt="Logo" width={120} height={120} />
+            <p className="mt-2 text-gray-400 leading-relaxed mb-4">
               {siteConfig.slogan}
             </p>
-            <p className="text-gray-500 text-sm">
+            <p className="text-gray-500 text-sm mt-2">
               Delivering elegant, functional, and cost-effective interior
               spaces.
             </p>

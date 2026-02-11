@@ -2,34 +2,59 @@
 
 import { useState } from "react";
 import { siteConfig } from "@/config/site";
-import { Mail, Phone, MapPin, Send, Loader2 } from "lucide-react";
+import { Mail, Phone, MapPin, Send, Loader2, X } from "lucide-react";
 
 export default function Contact() {
   const [loading, setLoading] = useState(false);
   const [formData, setFormData] = useState({
     name: "",
     email: "",
-    service: "Residential Interior & Exterior Design",
+    services: [] as string[],
     message: "",
   });
 
+  const serviceOptions = [
+    "Residential Interior & Exterior Design",
+    "Office & Commercial Interiors",
+    "Furniture Design & Supply",
+    "Curtains & Window Blinds",
+    "Space Planning & 3D Visualization",
+    "Interior Renovation & Remodeling",
+  ];
+
   const handleChange = (
-    e: React.ChangeEvent<
-      HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement
-    >,
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
   ) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
+  const toggleService = (service: string) => {
+    setFormData((prev) => ({
+      ...prev,
+      services: prev.services.includes(service)
+        ? prev.services.filter((s) => s !== service)
+        : [...prev.services, service],
+    }));
+  };
+
   const handleEmailSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+
+    if (formData.services.length === 0) {
+      alert("Please select at least one service.");
+      return;
+    }
+
     setLoading(true);
 
     try {
       const res = await fetch("/api/contact", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(formData),
+        body: JSON.stringify({
+          ...formData,
+          service: formData.services.join(", "), // Convert array to string for email
+        }),
       });
 
       if (res.ok) {
@@ -37,7 +62,7 @@ export default function Contact() {
         setFormData({
           name: "",
           email: "",
-          service: "Interior Design",
+          services: [],
           message: "",
         });
       } else {
@@ -51,13 +76,18 @@ export default function Contact() {
   };
 
   const handleWhatsApp = () => {
-    const { name, service, message } = formData;
+    const { name, services, message } = formData;
     if (!name || !message) {
       alert("Please fill in your name and message first.");
       return;
     }
 
-    const text = `Hello Vevadecor, my name is ${name}. I am interested in ${service}. Message: ${message}`;
+    if (services.length === 0) {
+      alert("Please select at least one service.");
+      return;
+    }
+
+    const text = `Hello SAF, my name is ${name}. I am interested in ${services.join(", ")}. Message: ${message}`;
     const encodedText = encodeURIComponent(text);
 
     // Open WhatsApp
@@ -127,7 +157,7 @@ export default function Contact() {
                 <MapPin size={24} />
               </div>
               <div>
-                <p className="text-sm text-gray-400 font-medium">Visit Us</p>
+                <p className="text-sm text-gray-400 font-medium">Located in</p>
                 <p className="text-lg font-semibold">
                   {siteConfig.contact.address}
                 </p>
@@ -169,24 +199,52 @@ export default function Contact() {
                   placeholder="john@example.com"
                 />
               </div>
-              <div className="flex flex-col gap-2 w-full">
-                <label className="text-sm font-semibold text-gray-700">
-                  Service Interest
-                </label>
-                <select
-                  name="service"
-                  value={formData.service}
-                  onChange={handleChange}
-                  className="p-3 border border-gray-200 rounded-sm focus:outline-none focus:border-black transition-colors bg-gray-50 h-full"
-                >
-                  <option>Residential Interior & Exterior Design</option>
-                  <option>Office & Commercial Interiors</option>
-                  <option>Furniture Design & Supply</option>
-                  <option>Curtains & Window Blinds</option>
-                  <option>Space Planning & 3D Visualization</option>
-                  <option>Interior Renovation & Remodeling</option>
-                </select>
+            </div>
+
+            <div className="flex flex-col gap-2">
+              <label className="text-sm font-semibold text-gray-700">
+                Service Interest{" "}
+                <span className="text-gray-500 font-normal">
+                  (Select all that apply)
+                </span>
+              </label>
+              <div className="grid grid-cols-1 gap-2">
+                {serviceOptions.map((service) => (
+                  <label
+                    key={service}
+                    className="flex items-center gap-3 p-3 border border-gray-200 rounded-sm hover:bg-gray-50 cursor-pointer transition-colors"
+                  >
+                    <input
+                      type="checkbox"
+                      checked={formData.services.includes(service)}
+                      onChange={() => toggleService(service)}
+                      className="w-4 h-4 accent-black cursor-pointer"
+                    />
+                    <span className="text-sm">{service}</span>
+                  </label>
+                ))}
               </div>
+
+              {/* Selected services tags */}
+              {formData.services.length > 0 && (
+                <div className="flex flex-wrap gap-2 mt-2">
+                  {formData.services.map((service) => (
+                    <span
+                      key={service}
+                      className="inline-flex items-center gap-1 bg-black text-white px-3 py-1 rounded-sm text-xs font-medium"
+                    >
+                      {service}
+                      <button
+                        type="button"
+                        onClick={() => toggleService(service)}
+                        className="hover:bg-white/20 rounded-full p-0.5 transition-colors"
+                      >
+                        <X size={12} />
+                      </button>
+                    </span>
+                  ))}
+                </div>
+              )}
             </div>
 
             <div className="flex flex-col gap-2">
