@@ -69,7 +69,7 @@ function Contact() {
             alert("Please fill in your name and message first.");
             return;
         }
-        const text = `Hello Vevadecor, my name is ${name}. I am interested in ${service}. Message: ${message}`;
+        const text = `Hello SAF, my name is ${name}. I am interested in ${service}. Message: ${message}`;
         const encodedText = encodeURIComponent(text);
         // Open WhatsApp
         window.open(`https://wa.me/${__TURBOPACK__imported__module__$5b$project$5d2f$SAL_G$2f$config$2f$site$2f$index$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["siteConfig"].contact.phone.replace("+", "")}?text=${encodedText}`, "_blank");

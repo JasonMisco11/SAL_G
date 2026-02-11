@@ -1,6 +1,7 @@
 import { siteConfig } from "@/config/site";
 import ScrollReveal from "@/components/ui/ScrollReveal";
 import { Home, Building2, Sofa, PanelTop, Box, Hammer } from "lucide-react";
+import Link from "next/link";
 
 const iconMap: Record<string, React.ReactNode> = {
   home: <Home className="w-7 h-7" />,
@@ -61,6 +62,12 @@ const Services = () => {
                 <p className="text-gray-500 leading-relaxed">
                   {service.description}
                 </p>
+                {/* <Link
+                  href="#contact"
+                  className="bg-[#1a1a1a] text-white px-6 py-2.5 text-sm font-semibold rounded-sm hover:bg-black/90 transition-all inline-block"
+                >
+                  Book
+                </Link> */}
               </div>
             </ScrollReveal>
           ))}

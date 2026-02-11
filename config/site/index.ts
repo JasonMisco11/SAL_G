@@ -1,10 +1,12 @@
 // config/site/index.tsx
+//  Also adding the logo so it can be used anywhere
+
 
 export const siteConfig = {
   name: "SAF Interior Limited",
   slogan: "Transforming Spaces, Inspiring Lifestyles",
   description: "Professional interior design and furnishing company specializing in residential, commercial, and corporate interior solutions.",
-  
+  logo: "https://res.cloudinary.com/dshe5kflb/image/upload/v1770808512/Simple_Minimalist_Home_Real_Estate_Logo_hwbfta.png",
   nav_Links: [
     { label: "Home", href: "/" },
     { label: "About", href: "#about" },
@@ -96,7 +98,7 @@ export const siteConfig = {
 
   contact: {
     email: "safinteriorlimited@gmail.com",
-    phone: "+233208861880", 
+    phone: "+233208861880",
     address: "Accra, Ghana", 
   }
 };
