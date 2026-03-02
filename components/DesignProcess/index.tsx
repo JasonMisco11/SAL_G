@@ -25,7 +25,7 @@ const DesignProcess = () => {
         {/* Timeline */}
         <div className="relative">
           {/* Center line - hidden on mobile */}
-          <div className="hidden lg:block absolute left-1/2 transform -translate-x-1/2 w-0.5 h-full bg-linear-to-b from-black via-gray-400 to-gray-200" />
+          <div className="hidden lg:block absolute left-1/2 transform -translate-x-1/2 w-0.5 h-full bg-linear-to-b from-[--color-primary-dark] via-[--color-primary] to-[--color-primary-light]" />
 
           <div className="space-y-12 lg:space-y-0">
             {siteConfig.designProcess.map((step, index) => (
@@ -52,7 +52,7 @@ const DesignProcess = () => {
                   <div
                     className={`lg:w-5/12 ${index % 2 === 0 ? "lg:pr-16 lg:text-right" : "lg:pl-16 lg:text-left"}`}
                   >
-                    <div className="bg-white border border-gray-200 p-8 rounded-sm hover:shadow-xl hover:border-black/20 transition-all duration-300">
+                    <div className="bg-white border border-gray-200 p-8 rounded-sm hover:shadow-xl hover:border-[--color-primary]/20 transition-all duration-300">
                       <span className="inline-block text-sm font-bold text-gray-400 mb-2">
                         Step {step.step}
                       </span>
@@ -66,7 +66,7 @@ const DesignProcess = () => {
                   </div>
 
                   {/* Circle with number - centered */}
-                  <div className="hidden lg:flex absolute left-1/2 transform -translate-x-1/2 w-14 h-14 bg-black text-white rounded-full items-center justify-center font-bold text-lg shadow-lg z-10">
+                  <div className="hidden lg:flex absolute left-1/2 transform -translate-x-1/2 w-14 h-14 bg-[--color-primary] text-white rounded-full items-center justify-center font-bold text-lg shadow-lg z-10">
                     {step.step}
                   </div>
 
@@ -76,10 +76,10 @@ const DesignProcess = () => {
 
                 {/* Mobile step indicator */}
                 <div className="lg:hidden flex items-center gap-4 mb-4">
-                  <div className="w-10 h-10 bg-black text-white rounded-full flex items-center justify-center font-bold text-sm shrink-0">
+                  <div className="w-10 h-10 bg-[--color-primary] text-white rounded-full flex items-center justify-center font-bold text-sm shrink-0">
                     {step.step}
                   </div>
-                  <div className="flex-1 h-0.5 bg-gray-200" />
+                  <div className="flex-1 h-0.5 bg-[--color-primary-light]" />
                 </div>
               </ScrollReveal>
             ))}

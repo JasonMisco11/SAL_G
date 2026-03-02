@@ -5,7 +5,7 @@ import About from "@/components/About";
 import Goals from "@/components/Goals";
 import DesignProcess from "@/components/DesignProcess";
 import Footer from "@/components/Footer";
-import InfiniteScroll from "@/components/ui/InfiniteScroll";
+import Gallery from "@/components/Gallery";
 
 export default function Home() {
   return (
@@ -14,7 +14,7 @@ export default function Home() {
       <About />
       <Goals />
       <Services />
-      <InfiniteScroll />
+      <Gallery />
       <DesignProcess />
       <Contact />
       <Footer />

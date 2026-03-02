@@ -20,13 +20,13 @@ const Hero = () => {
           <div className="flex flex-wrap gap-4 mt-2">
             <a
               href="#contact"
-              className="bg-black text-white px-8 py-4 font-semibold rounded-sm hover:bg-gray-800 transition-all inline-block"
+              className="bg-[--color-primary] text-white px-8 py-4 font-semibold rounded-sm hover:bg-[--color-primary-hover] transition-all inline-block"
             >
               Start Your Project
             </a>
             <a
               href="#services"
-              className="border-2 border-black text-black px-8 py-4 font-semibold rounded-sm hover:bg-black hover:text-white transition-all inline-block"
+              className="border-2 border-[--color-primary] text-[--color-primary] px-8 py-4 font-semibold rounded-sm hover:bg-[--color-primary] hover:text-white transition-all inline-block"
             >
               Our Services
             </a>
@@ -49,7 +49,7 @@ const Hero = () => {
 
         {/* Image composition */}
         <div className="relative h-[600px] w-full md:block">
-          <div className="absolute top-[20%] left-[10%] w-[60%] h-[60%] border-2 border-black/80 z-0 rounded-sm" />
+          <div className="absolute top-[20%] left-[10%] w-[60%] h-[60%] border-2 border-[--color-primary]/80 z-0 rounded-sm" />
 
           <div className="absolute top-0 right-0 w-[60%] h-[55%] z-10 shadow-xl">
             <Image
@@ -70,7 +70,7 @@ const Hero = () => {
           </div>
 
           {/* Arrow Box with Animated SVG */}
-          <div className="absolute bottom-0 right-0 w-24 h-24 bg-[#1a1a1a] flex items-center justify-center z-30 rounded-sm">
+          <div className="absolute bottom-0 right-0 w-24 h-24 bg-[--color-primary] flex items-center justify-center z-30 rounded-sm">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               fill="none"

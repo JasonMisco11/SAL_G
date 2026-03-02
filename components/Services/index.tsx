@@ -14,7 +14,7 @@ const iconMap: Record<string, React.ReactNode> = {
 
 const Services = () => {
   return (
-    <section id="services" className="py-24 px-6 bg-[#f9f9f9]">
+    <section id="services" className="py-24 px-6 bg-[--color-primary-light]">
       <div className="max-w-[1440px] mx-auto">
         <ScrollReveal>
           <div className="mb-16 md:mb-24 flex flex-col md:flex-row justify-between items-start md:items-end gap-6">
@@ -51,8 +51,8 @@ const Services = () => {
                           : "delay-0"
               }
             >
-              <div className="group bg-white p-10 rounded-sm border border-transparent hover:border-gray-200 hover:shadow-xl transition-all duration-300 h-full">
-                <div className="w-14 h-14 bg-black text-white flex items-center justify-center rounded-sm mb-6 group-hover:scale-110 transition-transform">
+              <div className="group bg-white p-10 rounded-sm border border-transparent hover:border-[--color-primary]/20 hover:shadow-xl transition-all duration-300 h-full">
+                <div className="w-14 h-14 bg-[--color-primary] text-white flex items-center justify-center rounded-sm mb-6 group-hover:bg-[--color-primary-hover] group-hover:scale-110 transition-all">
                   {iconMap[service.icon]}
                 </div>
 

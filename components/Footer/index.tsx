@@ -7,7 +7,7 @@ const Footer = () => {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="bg-[#0a0a0a] text-white pt-16 pb-8 px-6">
+    <footer className="bg-[--color-primary-dark] text-white pt-16 pb-8 px-6">
       <div className="max-w-[1440px] mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
           {/* Brand */}
@@ -30,7 +30,7 @@ const Footer = () => {
                 <li key={link.label}>
                   <Link
                     href={link.href}
-                    className="text-gray-400 hover:text-white transition-colors"
+                    className="text-gray-400 hover:text-white hover:underline transition-all"
                   >
                     {link.label}
                   </Link>
@@ -84,7 +84,7 @@ const Footer = () => {
         </div>
 
         {/* Divider */}
-        <div className="border-t border-gray-800 pt-8">
+        <div className="border-t border-white/10 pt-8 mt-12">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
             <p className="text-gray-500 text-sm">
               © {currentYear} {siteConfig.name}. All rights reserved.

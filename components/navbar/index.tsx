@@ -20,7 +20,7 @@ const Navbar = () => {
             <Link
               key={link.label}
               href={link.href}
-              className="text-gray-600 font-medium hover:text-black transition-colors"
+              className="text-gray-600 font-medium hover:text-[--color-primary] transition-colors"
             >
               {link.label}
             </Link>
@@ -30,7 +30,7 @@ const Navbar = () => {
         <div className="hidden md:block">
           <Link
             href="#contact"
-            className="bg-[#1a1a1a] text-white px-6 py-2.5 text-sm font-semibold rounded-sm hover:bg-black/90 transition-all inline-block"
+            className="bg-[--color-primary] text-white px-6 py-2.5 text-sm font-semibold rounded-sm hover:bg-[--color-primary-hover] transition-all inline-block"
           >
             Book
           </Link>

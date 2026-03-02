@@ -13,7 +13,7 @@ const iconMap: Record<string, React.ReactNode> = {
 
 const Goals = () => {
   return (
-    <section className="py-24 px-6 bg-[#f9f9f9]">
+    <section className="py-24 px-6 bg-[--color-primary-light]">
       <div className="max-w-[1440px] mx-auto">
         <ScrollReveal>
           <div className="text-center mb-16">
@@ -40,14 +40,14 @@ const Goals = () => {
                       : "delay-0"
               }
             >
-              <div className="group relative bg-white p-8 rounded-sm border border-transparent hover:border-gray-200 hover:shadow-2xl transition-all duration-300 h-full overflow-hidden">
+              <div className="group relative bg-white p-8 rounded-sm border border-transparent hover:border-[--color-primary]/20 hover:shadow-2xl hover:shadow-[--color-primary]/10 transition-all duration-300 h-full overflow-hidden">
                 {/* Background number */}
-                <span className="absolute -top-4 -right-2 text-8xl font-bold text-gray-100 group-hover:text-gray-200 transition-colors select-none">
+                <span className="absolute -top-4 -right-2 text-8xl font-bold text-gray-100 group-hover:text-[--color-primary-light] transition-colors select-none">
                   0{index + 1}
                 </span>
 
                 <div className="relative z-10">
-                  <div className="w-16 h-16 bg-black text-white flex items-center justify-center rounded-sm mb-6 group-hover:scale-110 transition-transform">
+                  <div className="w-16 h-16 bg-[--color-primary] text-white flex items-center justify-center rounded-sm mb-6 group-hover:bg-[--color-primary-hover] group-hover:scale-110 transition-all">
                     {iconMap[goal.icon]}
                   </div>
 

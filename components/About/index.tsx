@@ -34,7 +34,7 @@ const About = () => {
         {/* Vision & Mission */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-20">
           <ScrollReveal delay="delay-0">
-            <div className="relative bg-linear-to-br from-[#1a1a1a] to-[#333] p-10 rounded-sm text-white h-full">
+            <div className="relative bg-linear-to-br from-[--color-primary-dark] to-[--color-primary] p-10 rounded-sm text-white h-full">
               <div className="absolute top-6 right-6 w-16 h-16 border border-white/20 rounded-full flex items-center justify-center">
                 <span className="text-2xl font-bold">V</span>
               </div>
@@ -48,9 +48,11 @@ const About = () => {
           </ScrollReveal>
 
           <ScrollReveal delay="delay-200">
-            <div className="relative bg-linear-to-br from-gray-100 to-gray-50 p-10 rounded-sm h-full border border-gray-200">
-              <div className="absolute top-6 right-6 w-16 h-16 border border-black/20 rounded-full flex items-center justify-center">
-                <span className="text-2xl font-bold text-black">M</span>
+            <div className="relative bg-linear-to-br from-[--color-primary-light] to-white p-10 rounded-sm h-full border border-[--color-primary-light]">
+              <div className="absolute top-6 right-6 w-16 h-16 border border-[--color-primary]/20 rounded-full flex items-center justify-center">
+                <span className="text-2xl font-bold text-[--color-primary]">
+                  M
+                </span>
               </div>
               <h4 className="text-sm font-bold uppercase tracking-wider text-gray-500 mb-4">
                 Our Mission
@@ -90,8 +92,8 @@ const About = () => {
                         : "delay-0"
               }
             >
-              <div className="group bg-white border border-gray-200 p-6 rounded-sm text-center hover:shadow-xl hover:border-black/20 transition-all duration-300 h-full">
-                <div className="w-14 h-14 mx-auto bg-black text-white rounded-full flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+              <div className="group bg-white border border-gray-200 p-6 rounded-sm text-center hover:shadow-xl hover:border-[--color-primary]/20 transition-all duration-300 h-full">
+                <div className="w-14 h-14 mx-auto bg-[--color-primary] text-white rounded-full flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
                   {iconMap[value.icon]}
                 </div>
                 <h5 className="font-bold text-lg mb-2 text-black">

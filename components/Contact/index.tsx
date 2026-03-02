@@ -98,7 +98,10 @@ export default function Contact() {
   };
 
   return (
-    <section id="contact" className="py-24 px-6 bg-[#1a1a1a] text-white">
+    <section
+      id="contact"
+      className="py-24 px-6 bg-[--color-primary-dark] text-white"
+    >
       <div className="max-w-[1440px] mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16">
         <div className="flex flex-col gap-8">
           <div>
@@ -179,7 +182,7 @@ export default function Contact() {
                 value={formData.name}
                 onChange={handleChange}
                 required
-                className="p-3 border border-gray-200 rounded-sm focus:outline-none focus:border-black transition-colors bg-gray-50"
+                className="p-3 border border-gray-200 rounded-sm focus:outline-none focus:border-[--color-primary] focus:ring-1 focus:ring-[--color-primary] transition-all bg-gray-50"
                 placeholder="John Doe"
               />
             </div>
@@ -195,7 +198,7 @@ export default function Contact() {
                   value={formData.email}
                   onChange={handleChange}
                   required
-                  className="p-3 border border-gray-200 rounded-sm focus:outline-none focus:border-black transition-colors bg-gray-50"
+                  className="p-3 border border-gray-200 rounded-sm focus:outline-none focus:border-[--color-primary] focus:ring-1 focus:ring-[--color-primary] transition-all bg-gray-50"
                   placeholder="john@example.com"
                 />
               </div>
@@ -218,7 +221,7 @@ export default function Contact() {
                       type="checkbox"
                       checked={formData.services.includes(service)}
                       onChange={() => toggleService(service)}
-                      className="w-4 h-4 accent-black cursor-pointer"
+                      className="w-4 h-4 accent-[--color-primary] cursor-pointer"
                     />
                     <span className="text-sm">{service}</span>
                   </label>
@@ -231,7 +234,7 @@ export default function Contact() {
                   {formData.services.map((service) => (
                     <span
                       key={service}
-                      className="inline-flex items-center gap-1 bg-black text-white px-3 py-1 rounded-sm text-xs font-medium"
+                      className="inline-flex items-center gap-1 bg-[--color-primary] text-white px-3 py-1 rounded-sm text-xs font-medium"
                     >
                       {service}
                       <button
@@ -257,7 +260,7 @@ export default function Contact() {
                 value={formData.message}
                 onChange={handleChange}
                 required
-                className="p-3 border border-gray-200 rounded-sm focus:outline-none focus:border-black transition-colors bg-gray-50 resize-none"
+                className="p-3 border border-gray-200 rounded-sm focus:outline-none focus:border-[--color-primary] focus:ring-1 focus:ring-[--color-primary] transition-all bg-gray-50 resize-none"
                 placeholder="Tell us about your project..."
               />
             </div>
@@ -267,7 +270,7 @@ export default function Contact() {
               <button
                 type="submit"
                 disabled={loading}
-                className="flex-1 bg-black text-white py-3 font-semibold rounded-sm hover:bg-gray-800 transition-all flex items-center justify-center gap-2"
+                className="flex-1 bg-[--color-primary] text-white py-3 font-semibold rounded-sm hover:bg-[--color-primary-hover] transition-all flex items-center justify-center gap-2"
               >
                 {loading ? (
                   <Loader2 className="animate-spin" />
