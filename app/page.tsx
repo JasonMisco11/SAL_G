@@ -1,11 +1,14 @@
-import Contact from "@/components/Contact";
+import dynamic from "next/dynamic";
 import Hero from "@/components/Hero";
-import Services from "@/components/Services";
-import About from "@/components/About";
-import Goals from "@/components/Goals";
-import DesignProcess from "@/components/DesignProcess";
-import Footer from "@/components/Footer";
-import InfiniteScroll from "@/components/ui/InfiniteScroll";
+
+// Lazy-load below-fold sections to reduce initial JS bundle
+const About = dynamic(() => import("@/components/About"));
+const Goals = dynamic(() => import("@/components/Goals"));
+const Services = dynamic(() => import("@/components/Services"));
+const Gallery = dynamic(() => import("@/components/Gallery"));
+const DesignProcess = dynamic(() => import("@/components/DesignProcess"));
+const Contact = dynamic(() => import("@/components/Contact"));
+const Footer = dynamic(() => import("@/components/Footer"));
 
 export default function Home() {
   return (
@@ -14,7 +17,7 @@ export default function Home() {
       <About />
       <Goals />
       <Services />
-      <InfiniteScroll />
+      <Gallery />
       <DesignProcess />
       <Contact />
       <Footer />

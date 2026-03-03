@@ -2,13 +2,50 @@ import Image from "next/image";
 import { siteConfig } from "../../config/site/index";
 import Counter from "@/components/ui/Counter";
 
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "SAF Interior Limited | Transforming Spaces, Inspiring Lifestyles",
+  description:
+    "Professional interior design and furnishing company in Accra, Ghana. Specializing in residential, commercial, and corporate interior solutions with quality craftsmanship.",
+  icons: {
+    icon: siteConfig.logo,
+  },
+  robots: {
+    index: true,
+    follow: true,
+    nocache: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+      "max-video-preview": -1,
+    },
+  },
+  alternates: {
+    canonical: "/",
+  },
+};
+
 const Hero = () => {
   return (
     <section className="relative w-full pt-32 pb-20 px-6 bg-white overflow-hidden">
       <div className="max-w-[1440px] mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
         <div className="flex flex-col gap-6 z-10">
           <h1 className="mt-0 text-4xl md:text-7xl font-bold tracking-tighter text-black leading-[0.95]">
-            SAF Interior
+            S
+            <span
+              style={{
+                background: "linear-gradient(180deg, #5bc0eb 0%, #0066cc 100%)",
+                WebkitBackgroundClip: "text",
+                WebkitTextFillColor: "transparent",
+                backgroundClip: "text",
+              }}
+            >
+              A
+            </span>
+            F Interior
             <span className="block text-gray-400">Limited</span>
           </h1>
 
@@ -19,14 +56,14 @@ const Hero = () => {
           {/* CTA Buttons */}
           <div className="flex flex-wrap gap-4 mt-2">
             <a
-              href="#contact"
-              className="bg-black text-white px-8 py-4 font-semibold rounded-sm hover:bg-gray-800 transition-all inline-block"
+              href="/#contact"
+              className="bg-primary text-white px-8 py-4 font-semibold rounded-md hover:bg-primary-hover transition-all inline-block"
             >
               Start Your Project
             </a>
             <a
-              href="#services"
-              className="border-2 border-black text-black px-8 py-4 font-semibold rounded-sm hover:bg-black hover:text-white transition-all inline-block"
+              href="/#services"
+              className="border-2 border-primary text-primary px-8 py-4 font-semibold rounded-md hover:bg-primary hover:text-white transition-all inline-block"
             >
               Our Services
             </a>
@@ -49,28 +86,32 @@ const Hero = () => {
 
         {/* Image composition */}
         <div className="relative h-[600px] w-full md:block">
-          <div className="absolute top-[20%] left-[10%] w-[60%] h-[60%] border-2 border-black/80 z-0 rounded-sm" />
+          <div className="absolute top-[20%] left-[10%] w-[60%] h-[60%] border-2 border-primary/80 z-0 rounded-sm" />
 
           <div className="absolute top-0 right-0 w-[60%] h-[55%] z-10 shadow-xl">
             <Image
-              src="https://images.unsplash.com/photo-1622372738946-62e02505feb3?q=80&w=2032&auto=format&fit=crop"
+              src="https://images.unsplash.com/photo-1622372738946-62e02505feb3?q=80&w=1080&auto=format&fit=crop"
               alt="Elegant Dining Area"
               fill
+              priority
+              sizes="(max-width: 768px) 60vw, 30vw"
               className="object-cover rounded-sm"
             />
           </div>
 
           <div className="absolute bottom-0 left-[15%] w-[70%] h-[50%] z-20 shadow-2xl border-4 border-white rounded-sm">
             <Image
-              src="https://images.unsplash.com/photo-1609534117141-ff9f20450902?q=80&w=1966&auto=format&fit=crop"
+              src="https://images.unsplash.com/photo-1609534117141-ff9f20450902?q=80&w=1080&auto=format&fit=crop"
               alt="Cozy Interior Corner"
               fill
+              priority
+              sizes="(max-width: 768px) 70vw, 35vw"
               className="object-cover rounded-sm"
             />
           </div>
 
           {/* Arrow Box with Animated SVG */}
-          <div className="absolute bottom-0 right-0 w-24 h-24 bg-[#1a1a1a] flex items-center justify-center z-30 rounded-sm">
+          <div className="absolute bottom-0 right-0 w-24 h-24 bg-primary flex items-center justify-center z-30 rounded-sm">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
