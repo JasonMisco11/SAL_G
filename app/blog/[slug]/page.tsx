@@ -137,7 +137,7 @@ export default async function BlogPostPage({
           className="object-cover"
           sizes="100vw"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-black/20" />
+        <div className="absolute inset-0 bg-linear-to-t from-black/80 via-black/40 to-black/20" />
         <div className="absolute inset-0 flex items-end">
           <div className="max-w-[900px] mx-auto px-6 pb-12 w-full">
             {/* Breadcrumb */}
@@ -229,7 +229,7 @@ export default async function BlogPostPage({
               [&_ol]:list-decimal [&_ol]:pl-6 [&_ol]:mb-5 [&_ol]:text-gray-600
               [&_li]:mb-2 [&_li]:leading-relaxed
               [&_strong]:text-gray-900
-              [&_a]:text-[--color-primary] [&_a]:underline [&_a]:hover:text-[--color-primary-hover]"
+              [&_a]:text-primary [&_a]:underline [&_a]:hover:text-primary-hover"
             dangerouslySetInnerHTML={{ __html: post.content }}
           />
 
@@ -242,7 +242,7 @@ export default async function BlogPostPage({
               {post.tags.map((tag) => (
                 <span
                   key={tag}
-                  className="bg-gray-100 text-gray-600 text-sm px-4 py-2 rounded-full hover:bg-[--color-primary-light] hover:text-[--color-primary] transition-colors"
+                  className="bg-gray-100 text-gray-600 text-sm px-4 py-2 rounded-full hover:bg-primary-light hover:text-primary transition-colors"
                 >
                   {tag}
                 </span>
@@ -280,7 +280,7 @@ export default async function BlogPostPage({
                       className="object-cover group-hover:scale-110 transition-transform duration-700"
                       sizes="(max-width: 768px) 100vw, 33vw"
                     />
-                    <span className="absolute top-3 left-3 bg-[--color-primary] text-white text-xs font-bold uppercase tracking-wider px-3 py-1 rounded-full">
+                    <span className="absolute top-3 left-3 bg-primary text-white text-xs font-bold uppercase tracking-wider px-3 py-1 rounded-full">
                       {related.category}
                     </span>
                   </div>
@@ -296,7 +296,7 @@ export default async function BlogPostPage({
                       <span className="w-1 h-1 bg-gray-300 rounded-full" />
                       <span>{related.readTime}</span>
                     </div>
-                    <h4 className="font-bold text-gray-900 group-hover:text-[--color-primary] transition-colors line-clamp-2">
+                    <h4 className="font-bold text-gray-900 group-hover:text-primary transition-colors line-clamp-2">
                       {related.title}
                     </h4>
                   </div>
@@ -308,7 +308,7 @@ export default async function BlogPostPage({
       )}
 
       {/* CTA Section */}
-      <section className="py-16 px-6 bg-gradient-to-r from-[--color-primary-dark] to-[--color-primary]">
+      <section className="py-16 px-6 bg-linear-to-r from-primary-dark to-primary">
         <div className="max-w-[900px] mx-auto text-center">
           <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
             Ready to Transform Your Space?
@@ -319,7 +319,7 @@ export default async function BlogPostPage({
           </p>
           <Link
             href="/#contact"
-            className="inline-block bg-white text-[--color-primary] px-8 py-3.5 font-semibold rounded-sm hover:bg-gray-100 transition-colors"
+            className="inline-block bg-white text-primary px-8 py-3.5 font-semibold rounded-md hover:bg-gray-100 transition-colors"
           >
             Book Free Consultation
           </Link>

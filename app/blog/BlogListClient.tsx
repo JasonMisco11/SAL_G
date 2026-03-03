@@ -30,8 +30,8 @@ export default function BlogListClient({
             onClick={() => setActiveCategory("All")}
             className={`px-5 py-2.5 rounded-full text-sm font-semibold transition-all duration-300 cursor-pointer ${
               activeCategory === "All"
-                ? "bg-[--color-primary] text-white shadow-lg shadow-[--color-primary]/25"
-                : "bg-white text-gray-600 border border-gray-200 hover:border-[--color-primary]/30 hover:text-[--color-primary]"
+                ? "bg-primary text-white shadow-lg shadow-primary/25"
+                : "bg-white text-gray-600 border border-gray-200 hover:border-primary/30 hover:text-primary"
             }`}
           >
             All Posts
@@ -42,8 +42,8 @@ export default function BlogListClient({
               onClick={() => setActiveCategory(cat)}
               className={`px-5 py-2.5 rounded-full text-sm font-semibold transition-all duration-300 cursor-pointer ${
                 activeCategory === cat
-                  ? "bg-[--color-primary] text-white shadow-lg shadow-[--color-primary]/25"
-                  : "bg-white text-gray-600 border border-gray-200 hover:border-[--color-primary]/30 hover:text-[--color-primary]"
+                  ? "bg-primary text-white shadow-lg shadow-primary/25"
+                  : "bg-white text-gray-600 border border-gray-200 hover:border-primary/30 hover:text-primary"
               }`}
             >
               {cat}
@@ -71,8 +71,8 @@ export default function BlogListClient({
                   className="object-cover group-hover:scale-110 transition-transform duration-700 ease-out"
                   sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                <span className="absolute top-4 left-4 bg-[--color-primary] text-white text-xs font-bold uppercase tracking-wider px-3 py-1.5 rounded-full">
+                <div className="absolute inset-0 bg-linear-to-t from-black/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                <span className="absolute top-4 left-4 bg-primary text-white text-xs font-bold uppercase tracking-wider px-3 py-1.5 rounded-full">
                   {post.category}
                 </span>
               </Link>
@@ -92,7 +92,7 @@ export default function BlogListClient({
                 </div>
 
                 <Link href={`/blog/${post.slug}`}>
-                  <h2 className="text-lg font-bold text-gray-900 mb-3 leading-snug group-hover:text-[--color-primary] transition-colors duration-300 line-clamp-2">
+                  <h2 className="text-lg font-bold text-gray-900 mb-3 leading-snug group-hover:text-primary transition-colors duration-300 line-clamp-2">
                     {post.title}
                   </h2>
                 </Link>
@@ -103,7 +103,7 @@ export default function BlogListClient({
 
                 <Link
                   href={`/blog/${post.slug}`}
-                  className="inline-flex items-center gap-2 text-sm font-semibold text-[--color-primary] hover:gap-3 transition-all duration-300"
+                  className="inline-flex items-center gap-2 text-sm font-semibold text-primary hover:gap-3 transition-all duration-300"
                 >
                   Read Article
                   <svg

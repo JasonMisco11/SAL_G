@@ -32,6 +32,10 @@ export const metadata: Metadata = {
     description:
       "Expert interior design insights for Accra, Ghana. Curtains, blinds, furniture, lighting & more.",
   },
+  robots: {
+    index: true,
+    follow: true,
+  },
   alternates: {
     canonical: "/blog",
   },
@@ -43,7 +47,7 @@ export default function BlogPage() {
   return (
     <>
       {/* Hero Section */}
-      <section className="relative bg-gradient-to-br from-[--color-primary-dark] via-[--color-primary] to-[--color-primary-muted] py-20 px-6">
+      <section className="relative bg-linear-to-br from-primary-dark via-primary to-primary-muted py-20 px-6">
         <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxnIGZpbGw9IiNmZmZmZmYiIGZpbGwtb3BhY2l0eT0iMC4wNCI+PHBhdGggZD0iTTM2IDE0VjZoLTJWMGgtMnYySDE2VjBINHYyaC0ydjZIMHYyaDJ2Nmgydi0yaDJ2Mmg2di0yaDZ2LTJoMnptLTIgMGgtMnYtMmgydjJ6Ii8+PC9nPjwvZz48L3N2Zz4=')] opacity-30"></div>
         <div className="max-w-[1440px] mx-auto relative z-10 text-center">
           <span className="inline-block text-sm font-bold uppercase tracking-widest text-white/60 mb-4">

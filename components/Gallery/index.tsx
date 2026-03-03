@@ -2,22 +2,22 @@
 
 import { useState } from "react";
 import Image from "next/image";
+import Link from "next/link";
 import { siteConfig } from "@/config/site";
 import ScrollReveal from "@/components/ui/ScrollReveal";
-import { X, ZoomIn } from "lucide-react";
+import { X, ZoomIn, ArrowRight } from "lucide-react";
 
 export default function Gallery() {
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
 
-  // Use the gallery images from site config, and we'll just format them into columns for a masonry look
-  const images = siteConfig.galleryImages;
+  const images = siteConfig.galleryImages.slice(0, 6);
 
   return (
-    <section id="gallery" className="py-24 px-6 bg-[#f9f9f9]">
+    <section id="gallery" className="py-24 px-6 bg-gray-50">
       <div className="max-w-[1440px] mx-auto">
         <ScrollReveal>
           <div className="text-center mb-16">
-            <h2 className="text-sm font-bold uppercase tracking-wider text-gray-500 mb-4">
+            <h2 className="text-sm font-bold uppercase tracking-wider text-primary-muted mb-4">
               Our Work
             </h2>
             <h3 className="text-4xl md:text-5xl font-bold text-black max-w-2xl mx-auto leading-tight">
@@ -44,17 +44,9 @@ export default function Gallery() {
               }
             >
               <div
-                className="relative group rounded-sm overflow-hidden cursor-pointer mb-6 break-inside-avoid shadow-sm hover:shadow-xl transition-all duration-300"
+                className="relative group rounded-md overflow-hidden cursor-pointer mb-6 break-inside-avoid shadow-sm hover:shadow-xl transition-all duration-300"
                 onClick={() => setSelectedImage(img)}
               >
-                {/* 
-                  Since we are doing CSS masonry but images might be of different 
-                  sizes, we use native img with object-cover and standard widths,
-                  or Next Image with intrinsic sizing if known. 
-                  For unconstrained aspect ratios in a grid, we'll use a fixed arbitrary 
-                  aspect ratio for demonstration or let them flow.
-                  Let's give them varying aspect ratios for the masonry effect.
-                */}
                 <div
                   className={`relative w-full ${
                     idx % 4 === 0
@@ -81,6 +73,19 @@ export default function Gallery() {
             </ScrollReveal>
           ))}
         </div>
+
+        {/* View Full Gallery CTA */}
+        <ScrollReveal>
+          <div className="text-center mt-12">
+            <Link
+              href="/gallery"
+              className="inline-flex items-center gap-2 bg-primary text-white px-8 py-4 font-semibold rounded-md hover:bg-primary-hover transition-all"
+            >
+              View Full Gallery
+              <ArrowRight className="w-5 h-5" />
+            </Link>
+          </div>
+        </ScrollReveal>
       </div>
 
       {/* Lightbox Modal */}
@@ -98,7 +103,7 @@ export default function Gallery() {
 
           <div
             className="relative w-full max-w-5xl aspect-video sm:aspect-auto sm:h-[80vh] bg-transparent"
-            onClick={(e) => e.stopPropagation()} // Prevent clicking image from closing modal
+            onClick={(e) => e.stopPropagation()}
           >
             <Image
               src={selectedImage}

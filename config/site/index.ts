@@ -6,15 +6,14 @@ export const siteConfig = {
   name: "SAF Interior Limited",
   slogan: "Transforming Spaces, Inspiring Lifestyles",
   description: "Professional interior design and furnishing company specializing in residential, commercial, and corporate interior solutions.",
-  logo: "https://res.cloudinary.com/dshe5kflb/image/upload/v1770808512/Simple_Minimalist_Home_Real_Estate_Logo_hwbfta.png",
+  logo: "/SA.png",
   nav_Links: [
-    { label: "Home", href: "/" },
-    { label: "About", href: "#about" },
-    { label: "Services", href: "#services" }, 
-    { label: "Gallery", href: "#gallery" },
-    { label: "Process", href: "#process" },
+    { label: "About", href: "/#about" },
+    { label: "Services", href: "/#services" }, 
+    { label: "Gallery", href: "/gallery" },
+    { label: "Process", href: "/#process" },
     { label: "Blog", href: "/blog" },
-    { label: "Contact", href: "#contact" },   
+    { label: "Contact", href: "/#contact" },   
   ],
 
   heroStats: [
@@ -91,14 +90,14 @@ export const siteConfig = {
   ],
 
   galleryImages: [
-    "https://images.unsplash.com/photo-1622372738946-62e02505feb3?q=80&w=800&auto=format&fit=crop",
-    "https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?q=80&w=800&auto=format&fit=crop",
-    "https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?q=80&w=800&auto=format&fit=crop",
-    "https://images.unsplash.com/photo-1615529182904-14819c35db37?q=80&w=800&auto=format&fit=crop",
-    "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?q=80&w=800&auto=format&fit=crop",
-    "https://images.unsplash.com/photo-1609534117141-ff9f20450902?q=80&w=800&auto=format&fit=crop",
-    "https://images.unsplash.com/photo-1631679706909-1844bbd07221?q=80&w=800&auto=format&fit=crop",
-    "https://images.unsplash.com/photo-1593696140826-c58b021acf8b?q=80&w=800&auto=format&fit=crop",
+    "https://images.unsplash.com/photo-1622372738946-62e02505feb3?q=75&w=640&auto=format&fit=crop",
+    "https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?q=75&w=640&auto=format&fit=crop",
+    "https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?q=75&w=640&auto=format&fit=crop",
+    "https://images.unsplash.com/photo-1615529182904-14819c35db37?q=75&w=640&auto=format&fit=crop",
+    "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?q=75&w=640&auto=format&fit=crop",
+    "https://images.unsplash.com/photo-1609534117141-ff9f20450902?q=75&w=640&auto=format&fit=crop",
+    "https://images.unsplash.com/photo-1631679706909-1844bbd07221?q=75&w=640&auto=format&fit=crop",
+    "https://images.unsplash.com/photo-1593696140826-c58b021acf8b?q=75&w=640&auto=format&fit=crop",
   ],
 
   contact: {
