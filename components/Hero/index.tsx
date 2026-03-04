@@ -2,32 +2,6 @@ import Image from "next/image";
 import { siteConfig } from "../../config/site/index";
 import Counter from "@/components/ui/Counter";
 
-import { Metadata } from "next";
-
-export const metadata: Metadata = {
-  title: "SAF Interior Limited | Transforming Spaces, Inspiring Lifestyles",
-  description:
-    "Professional interior design and furnishing company in Accra, Ghana. Specializing in residential, commercial, and corporate interior solutions with quality craftsmanship.",
-  icons: {
-    icon: siteConfig.logo,
-  },
-  robots: {
-    index: true,
-    follow: true,
-    nocache: true,
-    googleBot: {
-      index: true,
-      follow: true,
-      "max-image-preview": "large",
-      "max-snippet": -1,
-      "max-video-preview": -1,
-    },
-  },
-  alternates: {
-    canonical: "/",
-  },
-};
-
 const Hero = () => {
   return (
     <section className="relative w-full pt-32 pb-20 px-6 bg-white overflow-hidden">
