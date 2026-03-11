@@ -9,7 +9,7 @@ const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <nav className="fixed top-0 left-0 w-full z-50 bg-white border-b border-gray-100">
+    <nav className="fixed top-0 left-0 w-full z-50 bg-white border-b border-gray-100 shadow-sm">
       <div className="max-w-[1440px] mx-auto px-6 h-20 flex items-center justify-between">
         <Link href="/" className="flex items-center gap-2">
           <Image src={siteConfig.logo} alt="Logo" width={80} height={80} />
@@ -20,7 +20,7 @@ const Navbar = () => {
             <Link
               key={link.label}
               href={link.href}
-              className="text-gray-600 font-medium hover:text-black transition-colors"
+              className="text-gray-600 font-medium hover:text-primary transition-colors"
             >
               {link.label}
             </Link>
@@ -29,8 +29,8 @@ const Navbar = () => {
 
         <div className="hidden md:block">
           <Link
-            href="#contact"
-            className="bg-[#1a1a1a] text-white px-6 py-2.5 text-sm font-semibold rounded-sm hover:bg-black/90 transition-all inline-block"
+            href="/#contact"
+            className="bg-primary text-white px-6 py-2.5 text-sm font-semibold rounded-md hover:bg-primary-hover transition-all inline-block"
           >
             Book
           </Link>
@@ -76,17 +76,24 @@ const Navbar = () => {
       </div>
 
       {isOpen && (
-        <div className="md:hidden absolute top-20 left-0 w-full bg-white border-b border-gray-100 shadow-lg p-6 flex flex-col gap-4 animate-in slide-in-from-top-2">
+        <div className="md:hidden absolute top-20 left-0 w-full bg-white border-b border-gray-100 shadow-lg p-6 flex flex-col gap-4">
           {siteConfig.nav_Links.map((link) => (
             <Link
               key={link.label}
               href={link.href}
               onClick={() => setIsOpen(false)}
-              className="text-lg font-medium text-gray-800"
+              className="text-lg font-medium text-gray-800 hover:text-primary transition-colors"
             >
               {link.label}
             </Link>
           ))}
+          <Link
+            href="/#contact"
+            onClick={() => setIsOpen(false)}
+            className="bg-primary text-white px-6 py-3 text-sm font-semibold rounded-md hover:bg-primary-hover transition-all inline-block text-center mt-2"
+          >
+            Book a Consultation
+          </Link>
         </div>
       )}
     </nav>

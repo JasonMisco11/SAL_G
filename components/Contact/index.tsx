@@ -53,7 +53,7 @@ export default function Contact() {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           ...formData,
-          service: formData.services.join(", "), // Convert array to string for email
+          service: formData.services.join(", "),
         }),
       });
 
@@ -90,7 +90,6 @@ export default function Contact() {
     const text = `Hello SAF, my name is ${name}. I am interested in ${services.join(", ")}. Message: ${message}`;
     const encodedText = encodeURIComponent(text);
 
-    // Open WhatsApp
     window.open(
       `https://wa.me/${siteConfig.contact.phone.replace("+", "")}?text=${encodedText}`,
       "_blank",
@@ -98,14 +97,14 @@ export default function Contact() {
   };
 
   return (
-    <section id="contact" className="py-24 px-6 bg-[#1a1a1a] text-white">
+    <section id="contact" className="py-24 px-6 bg-primary-dark text-white">
       <div className="max-w-[1440px] mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16">
         <div className="flex flex-col gap-8">
           <div>
-            <h2 className="text-4xl font-bold tracking-tight mb-4">
+            <h2 className="text-4xl font-bold tracking-tight mb-4 text-white">
               Start your project today
             </h2>
-            <p className="text-gray-400 text-lg max-w-md">
+            <p className="text-gray-300 text-lg max-w-md">
               Ready to transform your space? Book a consultation with us or send
               us a message directly.
             </p>
@@ -113,19 +112,19 @@ export default function Contact() {
 
           <div className="flex flex-col gap-6 mt-4">
             <div className="flex items-center gap-4">
-              <div className="w-12 h-12 bg-white/10 rounded-sm flex items-center justify-center text-white">
+              <div className="w-12 h-12 bg-white/10 rounded-md flex items-center justify-center text-white">
                 <Mail size={24} />
               </div>
               <div>
                 <a
                   href={`mailto:${siteConfig.contact.email}`}
-                  className="text-sm text-gray-400 font-medium hover:text-white transition-colors block"
+                  className="text-sm text-gray-300 font-medium hover:text-white transition-colors block"
                 >
                   Email Us
                 </a>
                 <a
                   href={`mailto:${siteConfig.contact.email}`}
-                  className="text-lg font-semibold hover:underline"
+                  className="text-lg font-semibold text-white hover:underline"
                 >
                   {siteConfig.contact.email}
                 </a>
@@ -133,19 +132,19 @@ export default function Contact() {
             </div>
 
             <div className="flex items-center gap-4">
-              <div className="w-12 h-12 bg-white/10 rounded-sm flex items-center justify-center text-white">
+              <div className="w-12 h-12 bg-white/10 rounded-md flex items-center justify-center text-white">
                 <Phone size={24} />
               </div>
               <div>
                 <a
                   href={`tel:${siteConfig.contact.phone}`}
-                  className="text-sm text-gray-400 font-medium hover:text-white transition-colors block"
+                  className="text-sm text-gray-300 font-medium hover:text-white transition-colors block"
                 >
                   Call / WhatsApp
                 </a>
                 <a
                   href={`tel:${siteConfig.contact.phone}`}
-                  className="text-lg font-semibold hover:underline"
+                  className="text-lg font-semibold text-white hover:underline"
                 >
                   {siteConfig.contact.phone}
                 </a>
@@ -153,12 +152,12 @@ export default function Contact() {
             </div>
 
             <div className="flex items-center gap-4">
-              <div className="w-12 h-12 bg-white/10 rounded-sm flex items-center justify-center text-white">
+              <div className="w-12 h-12 bg-white/10 rounded-md flex items-center justify-center text-white">
                 <MapPin size={24} />
               </div>
               <div>
-                <p className="text-sm text-gray-400 font-medium">Located in</p>
-                <p className="text-lg font-semibold">
+                <p className="text-sm text-gray-300 font-medium">Located in</p>
+                <p className="text-lg font-semibold text-white">
                   {siteConfig.contact.address}
                 </p>
               </div>
@@ -166,8 +165,10 @@ export default function Contact() {
           </div>
         </div>
 
-        <div className="bg-white text-black p-8 md:p-10 rounded-sm shadow-2xl">
-          <h3 className="text-2xl font-bold mb-6">Book a Consultation</h3>
+        <div className="bg-white text-black p-8 md:p-10 rounded-md shadow-2xl">
+          <h3 className="text-2xl font-bold mb-6 text-black">
+            Book a Consultation
+          </h3>
 
           <form onSubmit={handleEmailSubmit} className="flex flex-col gap-6">
             <div className="flex flex-col gap-2">
@@ -179,7 +180,7 @@ export default function Contact() {
                 value={formData.name}
                 onChange={handleChange}
                 required
-                className="p-3 border border-gray-200 rounded-sm focus:outline-none focus:border-black transition-colors bg-gray-50"
+                className="p-3 border border-gray-200 rounded-md focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-all bg-gray-50 text-black"
                 placeholder="John Doe"
               />
             </div>
@@ -195,7 +196,7 @@ export default function Contact() {
                   value={formData.email}
                   onChange={handleChange}
                   required
-                  className="p-3 border border-gray-200 rounded-sm focus:outline-none focus:border-black transition-colors bg-gray-50"
+                  className="p-3 border border-gray-200 rounded-md focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-all bg-gray-50 text-black"
                   placeholder="john@example.com"
                 />
               </div>
@@ -212,15 +213,15 @@ export default function Contact() {
                 {serviceOptions.map((service) => (
                   <label
                     key={service}
-                    className="flex items-center gap-3 p-3 border border-gray-200 rounded-sm hover:bg-gray-50 cursor-pointer transition-colors"
+                    className="flex items-center gap-3 p-3 border border-gray-200 rounded-md hover:bg-gray-50 cursor-pointer transition-colors"
                   >
                     <input
                       type="checkbox"
                       checked={formData.services.includes(service)}
                       onChange={() => toggleService(service)}
-                      className="w-4 h-4 accent-black cursor-pointer"
+                      className="w-4 h-4 accent-primary cursor-pointer"
                     />
-                    <span className="text-sm">{service}</span>
+                    <span className="text-sm text-black">{service}</span>
                   </label>
                 ))}
               </div>
@@ -231,7 +232,7 @@ export default function Contact() {
                   {formData.services.map((service) => (
                     <span
                       key={service}
-                      className="inline-flex items-center gap-1 bg-black text-white px-3 py-1 rounded-sm text-xs font-medium"
+                      className="inline-flex items-center gap-1 bg-primary text-white px-3 py-1 rounded-md text-xs font-medium"
                     >
                       {service}
                       <button
@@ -257,7 +258,7 @@ export default function Contact() {
                 value={formData.message}
                 onChange={handleChange}
                 required
-                className="p-3 border border-gray-200 rounded-sm focus:outline-none focus:border-black transition-colors bg-gray-50 resize-none"
+                className="p-3 border border-gray-200 rounded-md focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-all bg-gray-50 resize-none text-black"
                 placeholder="Tell us about your project..."
               />
             </div>
@@ -267,7 +268,7 @@ export default function Contact() {
               <button
                 type="submit"
                 disabled={loading}
-                className="flex-1 bg-black text-white py-3 font-semibold rounded-sm hover:bg-gray-800 transition-all flex items-center justify-center gap-2"
+                className="flex-1 bg-primary text-white py-3 font-semibold rounded-md hover:bg-primary-hover transition-all flex items-center justify-center gap-2"
               >
                 {loading ? (
                   <Loader2 className="animate-spin" />
@@ -280,7 +281,7 @@ export default function Contact() {
               <button
                 type="button"
                 onClick={handleWhatsApp}
-                className="flex-1 border-2 border-[#25D366] text-[#25D366] py-3 font-semibold rounded-sm hover:bg-[#25D366] hover:text-white transition-all flex items-center justify-center gap-2"
+                className="flex-1 border-2 border-[#25D366] text-[#25D366] py-3 font-semibold rounded-md hover:bg-[#25D366] hover:text-white transition-all flex items-center justify-center gap-2"
               >
                 <Send size={18} />
                 Book via WhatsApp

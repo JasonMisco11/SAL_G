@@ -7,12 +7,14 @@ import { X, ZoomIn, ImageIcon, Video, Play } from "lucide-react";
 
 const galleryVideos = [
   {
-    title: "Modern Living Room Transformation",
+    title: "Modern Interior Design",
     thumbnail:
       "https://res.cloudinary.com/dshe5kflb/image/upload/v1773225091/Screenshot_2026-03-11_102944_nocunk.jpg",
     videoUrl:
       "https://res.cloudinary.com/dshe5kflb/video/upload/v1773222097/IMG_4633_ccrppw.mp4",
     description: "Timeless Elegance: Interior Design Tour.",
+    description:
+      "Watch the complete transformation of a modern living room in Accra.",
   },
   {
     title: "Luxury Office Interior Design",

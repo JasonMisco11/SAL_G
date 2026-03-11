@@ -1,7 +1,6 @@
 import { siteConfig } from "@/config/site";
 import ScrollReveal from "@/components/ui/ScrollReveal";
 import { Home, Building2, Sofa, PanelTop, Box, Hammer } from "lucide-react";
-import Link from "next/link";
 
 const iconMap: Record<string, React.ReactNode> = {
   home: <Home className="w-7 h-7" />,
@@ -14,19 +13,19 @@ const iconMap: Record<string, React.ReactNode> = {
 
 const Services = () => {
   return (
-    <section id="services" className="py-24 px-6 bg-[#f9f9f9]">
+    <section id="services" className="py-24 px-6 bg-primary-light">
       <div className="max-w-[1440px] mx-auto">
         <ScrollReveal>
           <div className="mb-16 md:mb-24 flex flex-col md:flex-row justify-between items-start md:items-end gap-6">
             <div>
-              <h2 className="text-sm font-bold uppercase tracking-wider text-gray-500 mb-4">
+              <h2 className="text-sm font-bold uppercase tracking-wider text-primary-muted mb-4">
                 Our Services
               </h2>
               <h3 className="text-4xl text-black md:text-5xl font-bold tracking-tight max-w-lg leading-tight">
                 Comprehensive Interior Solutions
               </h3>
             </div>
-            <p className="text-gray-500 max-w-sm text-lg">
+            <p className="text-gray-600 max-w-sm text-lg">
               From concept to completion, we deliver exceptional design services
               tailored to your unique vision.
             </p>
@@ -51,8 +50,8 @@ const Services = () => {
                           : "delay-0"
               }
             >
-              <div className="group bg-white p-10 rounded-sm border border-transparent hover:border-gray-200 hover:shadow-xl transition-all duration-300 h-full">
-                <div className="w-14 h-14 bg-black text-white flex items-center justify-center rounded-sm mb-6 group-hover:scale-110 transition-transform">
+              <div className="group bg-white p-10 rounded-md border border-transparent hover:border-primary/20 hover:shadow-xl transition-all duration-300 h-full">
+                <div className="w-14 h-14 bg-primary text-white flex items-center justify-center rounded-md mb-6 group-hover:bg-primary-hover group-hover:scale-110 transition-all">
                   {iconMap[service.icon]}
                 </div>
 
@@ -62,12 +61,6 @@ const Services = () => {
                 <p className="text-gray-500 leading-relaxed">
                   {service.description}
                 </p>
-                {/* <Link
-                  href="#contact"
-                  className="bg-[#1a1a1a] text-white px-6 py-2.5 text-sm font-semibold rounded-sm hover:bg-black/90 transition-all inline-block"
-                >
-                  Book
-                </Link> */}
               </div>
             </ScrollReveal>
           ))}
