@@ -13,8 +13,7 @@ const galleryVideos = [
     videoUrl:
       "https://res.cloudinary.com/dshe5kflb/video/upload/v1773222097/IMG_4633_ccrppw.mp4",
     description: "Timeless Elegance: Interior Design Tour.",
-    description:
-      "Watch the complete transformation of a modern living room in Accra.",
+   
   },
   {
     title: "Luxury Office Interior Design",
