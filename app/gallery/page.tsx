@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { siteConfig } from "@/config/site";
 import GalleryClient from "./GalleryClient";
-import { createClient } from "@/utils/supabase/server";
+import { createClient } from "@supabase/supabase-js";
 
 export const metadata: Metadata = {
   title: "Gallery | SAF Interior Limited - Our Work & Projects",
@@ -33,8 +33,11 @@ export const metadata: Metadata = {
 
 export const revalidate = 3600;
 
+const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL!;
+const supabaseKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!;
+
 export default async function GalleryPage() {
-  const supabase = await createClient();
+  const supabase = createClient(supabaseUrl, supabaseKey);
   const { data: images } = await supabase
     .from("gallery_images")
     .select("*")

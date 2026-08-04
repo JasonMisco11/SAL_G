@@ -3,12 +3,15 @@ import { notFound } from "next/navigation";
 import Link from "next/link";
 import Image from "next/image";
 import { siteConfig } from "@/config/site";
-import { createClient } from "@/utils/supabase/server";
+import { createClient } from "@supabase/supabase-js";
 
 export const revalidate = 3600;
 
+const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL!;
+const supabaseKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!;
+
 export async function generateStaticParams() {
-  const supabase = await createClient();
+  const supabase = createClient(supabaseUrl, supabaseKey);
   const { data: posts } = await supabase.from('blog_posts').select('slug');
   return (posts || []).map((post) => ({
     slug: post.slug,
@@ -21,7 +24,7 @@ export async function generateMetadata({
   params: Promise<{ slug: string }>;
 }): Promise<Metadata> {
   const { slug } = await params;
-  const supabase = await createClient();
+  const supabase = createClient(supabaseUrl, supabaseKey);
   const { data: post } = await supabase.from('blog_posts').select('*').eq('slug', slug).single();
 
   if (!post) {
@@ -68,7 +71,7 @@ export default async function BlogPostPage({
   params: Promise<{ slug: string }>;
 }) {
   const { slug } = await params;
-  const supabase = await createClient();
+  const supabase = createClient(supabaseUrl, supabaseKey);
   
   const { data: post } = await supabase.from('blog_posts').select('*').eq('slug', slug).single();
 

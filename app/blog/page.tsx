@@ -3,7 +3,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { siteConfig } from "@/config/site";
 import BlogListClient from "./BlogListClient";
-import { createClient } from "@/utils/supabase/server";
+import { createClient } from "@supabase/supabase-js";
 
 export const metadata: Metadata = {
   title:
@@ -43,8 +43,11 @@ export const metadata: Metadata = {
 
 export const revalidate = 3600;
 
+const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL!;
+const supabaseKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!;
+
 export default async function BlogPage() {
-  const supabase = await createClient();
+  const supabase = createClient(supabaseUrl, supabaseKey);
   const { data: posts } = await supabase
     .from("blog_posts")
     .select("*")

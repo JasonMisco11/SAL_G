@@ -2,12 +2,15 @@ import Link from "next/link";
 import ScrollReveal from "@/components/ui/ScrollReveal";
 import { ArrowRight } from "lucide-react";
 import GalleryGrid from "./GalleryGrid";
-import { createClient } from "@/utils/supabase/server";
+import { createClient } from "@supabase/supabase-js";
 
 export const revalidate = 3600; // revalidate every hour, or rely on on-demand revalidation
 
+const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL!;
+const supabaseKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!;
+
 export default async function Gallery() {
-  const supabase = await createClient();
+  const supabase = createClient(supabaseUrl, supabaseKey);
   const { data: images } = await supabase
     .from("gallery_images")
     .select("*")
