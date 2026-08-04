@@ -15,7 +15,7 @@ export default async function GalleryAdminPage() {
   return (
     <div>
       <div className="flex justify-between items-center mb-8">
-        <h1 className="text-3xl font-bold text-gray-900">Gallery Manager</h1>
+        <h1 className="text-3xl font-bold text-gray-900">Gallery Management</h1>
       </div>
 
       <div className="bg-white p-6 rounded-lg shadow-sm mb-8 border border-gray-100">
