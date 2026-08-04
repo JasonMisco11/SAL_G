@@ -1,7 +1,7 @@
 'use server'
 
 import { revalidatePath } from 'next/cache';
-import { createClient } from '@/utils/supabase/server';
+import { createAdminClient } from '@/utils/supabase/admin';
 import { uploadImageToCloudinary, deleteImageFromCloudinary } from '@/utils/cloudinary';
 
 export async function uploadGalleryImage(formData: FormData) {
@@ -12,7 +12,7 @@ export async function uploadGalleryImage(formData: FormData) {
     const buffer = Buffer.from(await file.arrayBuffer());
     const imageUrl = await uploadImageToCloudinary(buffer);
 
-    const supabase = await createClient();
+    const supabase = createAdminClient();
     
     // Get highest display order
     const { data: latestImg } = await supabase
@@ -51,7 +51,7 @@ export async function deleteGalleryImage(id: string, url: string) {
     await deleteImageFromCloudinary(url);
 
     // Delete from Supabase
-    const supabase = await createClient();
+    const supabase = createAdminClient();
     const { error } = await supabase
       .from('gallery_images')
       .delete()

@@ -1,11 +1,11 @@
 'use server'
 
 import { revalidatePath } from 'next/cache';
-import { createClient } from '@/utils/supabase/server';
+import { createAdminClient } from '@/utils/supabase/admin';
 import { uploadImageToCloudinary } from '@/utils/cloudinary';
 
 export async function createBlogPost(formData: FormData) {
-  const supabase = await createClient();
+  const supabase = createAdminClient();
   
   const title = formData.get('title') as string;
   const slug = formData.get('slug') as string;
@@ -43,7 +43,7 @@ export async function createBlogPost(formData: FormData) {
 }
 
 export async function updateBlogPost(id: string, formData: FormData) {
-  const supabase = await createClient();
+  const supabase = createAdminClient();
   
   const title = formData.get('title') as string;
   const slug = formData.get('slug') as string;
@@ -80,7 +80,7 @@ export async function updateBlogPost(id: string, formData: FormData) {
 }
 
 export async function deleteBlogPost(id: string) {
-  const supabase = await createClient();
+  const supabase = createAdminClient();
   const { error } = await supabase.from('blog_posts').delete().eq('id', id);
 
   if (error) {
