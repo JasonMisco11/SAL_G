@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import Image from "next/image";
-import { blogPosts, getBlogCategories } from "@/data/blog-posts";
 import { siteConfig } from "@/config/site";
 import BlogListClient from "./BlogListClient";
+import { createClient } from "@/utils/supabase/server";
 
 export const metadata: Metadata = {
   title:
@@ -41,8 +41,16 @@ export const metadata: Metadata = {
   },
 };
 
-export default function BlogPage() {
-  const categories = getBlogCategories();
+export const revalidate = 3600;
+
+export default async function BlogPage() {
+  const supabase = await createClient();
+  const { data: posts } = await supabase
+    .from("blog_posts")
+    .select("*")
+    .order("date", { ascending: false });
+    
+  const categories = Array.from(new Set(posts?.map(post => post.category).filter(Boolean) as string[]));
 
   return (
     <>
@@ -67,7 +75,7 @@ export default function BlogPage() {
       </section>
 
       {/* Blog List with Client-Side Filtering */}
-      <BlogListClient posts={blogPosts} categories={categories} />
+      <BlogListClient posts={posts || []} categories={categories} />
     </>
   );
 }

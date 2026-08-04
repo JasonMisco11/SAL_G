@@ -1,7 +1,7 @@
 import type { MetadataRoute } from "next";
-import { blogPosts } from "@/data/blog-posts";
+import { createClient } from "@/utils/supabase/server";
 
-export default function sitemap(): MetadataRoute.Sitemap {
+export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const baseUrl = "https://safinterior.com";
 
   // Static pages
@@ -27,7 +27,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
   ];
 
   // Dynamic blog post pages
-  const blogPages: MetadataRoute.Sitemap = blogPosts.map((post) => ({
+  const supabase = await createClient();
+  const { data: posts } = await supabase.from("blog_posts").select("slug, date");
+
+  const blogPages: MetadataRoute.Sitemap = (posts || []).map((post) => ({
     url: `${baseUrl}/blog/${post.slug}`,
     lastModified: new Date(post.date),
     changeFrequency: "monthly" as const,

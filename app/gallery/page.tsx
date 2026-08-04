@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { siteConfig } from "@/config/site";
 import GalleryClient from "./GalleryClient";
+import { createClient } from "@/utils/supabase/server";
 
 export const metadata: Metadata = {
   title: "Gallery | SAF Interior Limited - Our Work & Projects",
@@ -30,7 +31,15 @@ export const metadata: Metadata = {
   },
 };
 
-export default function GalleryPage() {
+export const revalidate = 3600;
+
+export default async function GalleryPage() {
+  const supabase = await createClient();
+  const { data: images } = await supabase
+    .from("gallery_images")
+    .select("*")
+    .order("display_order", { ascending: true });
+
   return (
     <>
       {/* Hero Section */}
@@ -54,7 +63,7 @@ export default function GalleryPage() {
       </section>
 
       {/* Gallery Content with Client-Side Tabs */}
-      <GalleryClient />
+      <GalleryClient images={images || []} />
     </>
   );
 }

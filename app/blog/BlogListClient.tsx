@@ -3,10 +3,20 @@
 import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import type { BlogPost } from "@/data/blog-posts";
+
+interface BlogPostData {
+  id?: string;
+  title: string;
+  slug: string;
+  category: string;
+  date: string;
+  read_time: string;
+  excerpt: string;
+  cover_image: string;
+}
 
 interface BlogListClientProps {
-  posts: BlogPost[];
+  posts: BlogPostData[];
   categories: string[];
 }
 
@@ -65,7 +75,7 @@ export default function BlogListClient({
                 className="block relative h-56 overflow-hidden"
               >
                 <Image
-                  src={post.coverImage}
+                  src={post.cover_image}
                   alt={post.title}
                   fill
                   className="object-cover group-hover:scale-110 transition-transform duration-700 ease-out"
@@ -88,7 +98,7 @@ export default function BlogListClient({
                     })}
                   </time>
                   <span className="w-1 h-1 bg-gray-300 rounded-full" />
-                  <span>{post.readTime}</span>
+                  <span>{post.read_time}</span>
                 </div>
 
                 <Link href={`/blog/${post.slug}`}>

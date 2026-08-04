@@ -26,14 +26,12 @@ const galleryVideos = [
   },
 ];
 
-export default function GalleryClient() {
+export default function GalleryClient({ images }: { images: { id: string; url: string; alt_text: string }[] }) {
   const [activeTab, setActiveTab] = useState<"pictures" | "videos">("pictures");
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
   const [selectedVideo, setSelectedVideo] = useState<
     (typeof galleryVideos)[0] | null
   >(null);
-
-  const images = siteConfig.galleryImages;
 
   return (
     <section className="py-16 px-6 bg-gray-50">
@@ -69,9 +67,9 @@ export default function GalleryClient() {
           <div className="columns-1 sm:columns-2 lg:columns-3 xl:columns-4 gap-6 space-y-6">
             {images.map((img, idx) => (
               <div
-                key={idx}
+                key={img.id}
                 className="relative group rounded-md overflow-hidden cursor-pointer break-inside-avoid shadow-sm hover:shadow-xl transition-all duration-300"
-                onClick={() => setSelectedImage(img)}
+                onClick={() => setSelectedImage(img.url)}
               >
                 <div
                   className={`relative w-full ${
@@ -87,8 +85,8 @@ export default function GalleryClient() {
                   }`}
                 >
                   <Image
-                    src={img}
-                    alt={`Interior Design Project ${idx + 1}`}
+                    src={img.url}
+                    alt={img.alt_text || `Interior Design Project ${idx + 1}`}
                     fill
                     className="object-cover group-hover:scale-105 transition-transform duration-500"
                     sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, (max-width: 1280px) 33vw, 25vw"
